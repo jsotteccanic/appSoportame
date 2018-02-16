@@ -1,0 +1,23 @@
+body{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+#ncontenedor{
+    width: 100%;
+    height: 100%;
+}
+#btnInicio{
+  display:block;
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  margin: auto;
+  margin-top: 10%;
+  font-size: 40px;
+}
+/*#btnInicio:hover{
+background-color: #3ac0ff;
+}*/
+
+    

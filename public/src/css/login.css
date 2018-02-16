@@ -1,0 +1,28 @@
+@media (max-width: 600px) {
+
+#loginForm{
+    width: 80%;
+    margin-top:20%;
+}
+  body{
+    background-image: url('http://computronikjr.com/wp-content/uploads/2015/06/2_Servicios_Soporte_Tecnico1.jpg');
+}
+}
+
+@media (min-width: 600px) {
+
+#loginForm{
+    margin-top:20%;
+    width: 45%;
+}
+  body{
+    background-color:rebeccapurple;
+}
+}
+:input{
+    text-align: center;
+}
+@media screen and (orientation:portrait) { height: 100vh;
+            width: 100vw; }
+@media screen and (orientation:landscape) {height: 100vh;
+            width: 100vw; }
