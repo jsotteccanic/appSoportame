@@ -3,13 +3,13 @@ function iniciarsession() {
     valores = $("#loginForm").form('get values');
     valores.gethash =true;
     $.ajax({
-        url: ruta+'usuario/login',
+        url: servicio+'usuario/login',
         type: 'post',
         data: valores,
         success: function (r) {
             sessionStorage.setItem('sesion',r.token);         
-            location.replace("http://192.168.0.12:9090/usuario.html");
-            location.replace("http://192.168.0.12:9090/usuario.html");
+            location.replace(ruta+"/usuario.html");
+            location.replace(ruta+"/usuario.html");
             
         },
         error:function(res){
@@ -17,8 +17,3 @@ function iniciarsession() {
         }
     });
 }
-// function redireccion(){
-//     window.location='http://192.168.0.12:9090/usuario.html';
-//     window.location.href='http://192.168.0.12:9090/usuario.html';
-//     location.replace("http://192.168.0.12:9090/usuario.html");
-// }

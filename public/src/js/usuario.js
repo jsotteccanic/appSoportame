@@ -12,7 +12,7 @@ window.onbeforeunload = function () {
 };
 function obtenerColaboradores() {
     $.ajax({
-        url: ruta + 'colaborador/listarColaboradores',
+        url: servicio + 'colaborador/listarColaboradores',
         type: 'get',
         success: function (r) {
             r = r.colaborador;
