@@ -19,7 +19,7 @@ function obtenerColaboradores() {
             $('#dni').empty();
             $('#dni').append('<option value="">Seleccione</option>');
             for (i = 0; i < r.length; i++) {
-                $('#dni').append("<option value='" + r[i]['dni'] + "'>" + r[i]['nombres'] + ' ' + r[i]['apellidos'] + "<option>");
+                $('#dni').append("<option value='" + r[i]['_id'] + "'>" + r[i]['nombres'] + ' ' + r[i]['apellidos'] + "<option>");
             }
             $('#dni').dropdown();
         },
@@ -29,7 +29,6 @@ function obtenerColaboradores() {
     });
 }
 function obtenerTipoAtencion() {
-debugger;
     $('#tipoAtencion').empty();
     $('#tipoAtencion').append('<option value="">Seleccione</option>');
     for (i = 0; i < tipoAtencion.length; i++) {
@@ -41,39 +40,28 @@ debugger;
 
 function mostrarModal() {
     $("#modal").modal('show');
-    $.ajax({
-        url: 'php/enrutador.php?type=7',
-        type: 'post',
-        success: function (r) {
-            datos = JSON.parse(r);
-            tiempo = datos[0]['fecha'];
-            $("#modal").modal('show');
-        }
-    });
-
-
-
 }
+
 function atender() {
     //valores = $("#formulario").form('get values');
     valores = {};
-    valores.dni = $("#dni option:selected").val();
     valores.tipoAtencion = $("#tipoAtencion option:selected").val();
-    valores.detalle = $("#detalle").val();
-    valores.t_inicio = tiempo;
+    valores.descripcion = $("#detalle").val();
+    valores.colaborador = $("#dni option:selected").val();   
+    
+    // valores.t_inicio = tiempo;
     console.log(valores);
     $.ajax({
-        url: 'php/enrutador.php?type=4',
+        url: servicio+'atencion/registrarAtencion',
         data: valores,
         type: 'post',
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization", sessionStorage.getItem('sesion'));
+          },
         success: function (r) {
-            rpt = JSON.parse(r);
-            if (rpt[0]['ok'] == '1') {
-
+            if (r) {
                 $("#formulario").form('clear');
                 $("#formulario").form('reset');
-                // $('#tipoAtencion').dropdown();
-                //  $('#dni').dropdown();
                 alert('Se registro satisfactoriamente!');
             }
             else {

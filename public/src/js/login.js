@@ -8,8 +8,8 @@ function iniciarsession() {
         data: valores,
         success: function (r) {
             sessionStorage.setItem('sesion',r.token);         
-            location.replace(ruta+"/usuario.html");
-            location.replace(ruta+"/usuario.html");
+            location.replace(ruta+"usuario.html");
+            location.replace(ruta+"usuario.html");
             
         },
         error:function(res){
