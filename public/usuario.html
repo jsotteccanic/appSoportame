@@ -9,6 +9,21 @@
     <meta name="viewport" content="width=device-width">
     <meta name="mobile-web-app-capable" content="yes">
     <link rel="icon" sizes="192x192" href="/icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="PWAGram">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-57x57.png" sizes="57x57">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-60x60.png" sizes="60x60">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-72x72.png" sizes="72x72">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-76x76.png" sizes="76x76">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-114x114.png" sizes="114x114">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-120x120.png" sizes="120x120">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-144x144.png" sizes="144x144">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-152x152.png" sizes="152x152">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-180x180.png" sizes="180x180">
+    <meta name="msapplication-TileImage" content="/src/images/icons/app-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#fff">
+    <meta name="theme-color" content="#3f51b5">
     <script src="src/js/jquery-3.1.1.min.js"></script>
     <script src="src/js/semantic.js"></script>
     <link rel="stylesheet" href="src/css/semantic.min.css">
@@ -32,10 +47,11 @@
 
     <div class="ui inverted segment" id="ncontenedor">
         <h2 class="ui center aligned header blue">SISTEMA DE TICKET</h2>
-        <button onclick="mostrarModal();" class="ui inverted blue button" id="btnInicio">INICIAR</button>
-        <!--<h1 class="ui center aligned header red">00 : 00 : 00</h1>-->
+        <button onclick="mostrarModalRegistro();" class="ui inverted blue button" id="btnInicio">START</button>
+        <button onclick="mostrarModalPendientes();" class="ui inverted red button" id="btnInicio">END</button>
 
-        <div class="ui basic modal" id="modal">
+
+        <div class="ui basic modal" id="modal1">
             <div class="ui icon header">
                 <i class="privacy icon"></i> Cerrar Ticket
             </div>
@@ -60,12 +76,39 @@
                 </div>
             </div>
             <div class="actions">
-                <div class="ui red basic cancel inverted button">
+                <div class="ui red basic cancel inverted button" onclick="cancelarRegistro()">
                     <i class="remove icon"></i> No
                 </div>
                 <div class="ui green ok inverted button" onclick="atender()">
                     <i class="checkmark icon"></i> Yes
                 </div>
+            </div>
+        </div>
+
+        <div class="ui basic modal" id="modal2">
+            <div class="ui icon header">
+                <i class="privacy icon"></i> Cerrar Ticket
+            </div>
+            <div class="scrolling image content">
+                <table class="ui stackable inverted table">
+                    <thead>
+                        <th>Nombre</th>
+                        <th>Área</th>
+                        <th>Fecha</th>
+                        <th>Fin</th>
+                    </thead>
+                    <tbody id="tbListaAtencion">
+                      
+                    </tbody>
+                </table>
+            </div>
+            <div class="actions">
+                <div class="ui red basic cancel inverted button" onclick="cancelarRegistro()">
+                    <i class="remove icon"></i> Salir
+                </div>
+                <!-- <div class="ui green ok inverted button" onclick="atender()">
+                    <i class="checkmark icon"></i> Yes
+                </div> -->
             </div>
         </div>
         <script src="src/js/usuario.js" type="text/javascript"></script>
