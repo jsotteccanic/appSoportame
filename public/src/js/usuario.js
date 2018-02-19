@@ -86,6 +86,7 @@ function consultarAtenciones() {
             for (i = 0; i < r.atencion.length; i++) {
                 $("#tbListaAtencion").append('<tr><td>' + r.atencion[i].colaborador.nombres + ' ' + r.atencion[i].colaborador.apellidos + '</td><td>' + r.atencion[i].colaborador.area + '</td><td>' + r.atencion[0].fecha_inicio + '</td><td><button class="ui inverted red basic button" onclick="finalizarAtencion(\'' + r.atencion[i]._id + '\')" >Cerrar</button></td></tr>');
             }
+            $("#modal1").modal('refresh');
         }
     });
 }
